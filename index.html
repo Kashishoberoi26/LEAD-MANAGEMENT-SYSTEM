@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite CRM | AI Lead Intelligence Platform</title>
+  <meta name="description" content="Enterprise-level CRM simulation with 7-layer architecture, automated scoring, and real-time analytics."/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/crm.css" />
+  
+  <style>
+    /* Inline positioning for hero area to match existing style but with new dashboard */
+    .hero-lite {
+      padding: 60px 24px 20px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,.1) 0%, transparent 70%);
+    }
+    .hero-lite h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero-lite p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
+    
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(5,7,15,0.8); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo { font-weight: 800; font-size: 1rem; color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: var(--transition); }
+    .nav-links a:hover { color: var(--accent); }
+    
+    #email-modal.show { display: flex; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">⚡ ELITE CRM INTEL</div>
+    <div class="nav-links">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#leads">Leads</a>
+      <a href="#resume">Project Details</a>
+    </div>
+  </nav>
+
+  <div class="hero-lite">
+    <h1>Lead Intelligence Platform</h1>
+    <p>A 7-layer enterprise architecture simulation. Submit a lead to trigger the automated intelligence engine.</p>
+  </div>
+
+  <main class="dashboard-grid" id="dashboard">
+    
+    <!-- LEFT: Lead Capture & Flow -->
+    <aside style="display: flex; flex-direction: column; gap: 24px;">
+      
+      <!-- Lead Form -->
+      <section class="card">
+        <h2 class="panel-title">📥 Lead Capture</h2>
+        <form id="lead-submission-form">
+          <div class="form-group">
+            <label>Prospect Name</label>
+            <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required />
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" name="company" class="form-control" placeholder="e.g. TechNova" required />
+          </div>
+          <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div class="form-group">
+              <label>Budget (₹)</label>
+              <input type="number" name="budget" class="form-control" placeholder="60000" required />
+            </div>
+            <div class="form-group">
+              <label>Industry</label>
+              <select name="industry" class="form-control">
+                <option value="Technology">Technology</option>
+                <option value="Finance">Finance</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Retail">Retail</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Company Size</label>
+            <select name="companySize" class="form-control">
+              <option value="Enterprise">Enterprise</option>
+              <option value="Medium Business">Medium Business</option>
+              <option value="Small Business">Small Business</option>
+              <option value="Startup">Startup</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Lead Source</label>
+            <select name="leadSource" class="form-control">
+              <option value="Web">Web Site</option>
+              <option value="Referral">Referral</option>
+              <option value="Event">Event/Trade Show</option>
+              <option value="Social Media">Social Media</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Process Intelligence Flow</button>
+        </form>
+      </section>
+
+      <!-- Flow Visualizer -->
+      <section class="card">
+        <h2 class="panel-title">⚡ Flow Execution</h2>
+        <div class="flow-container">
+          <div class="flow-step" data-step="1">
+            <div class="flow-num">1</div>
+            <div style="font-size: 0.8rem;">Data Persist (Layer 6)</div>
+          </div>
+          <div class="flow-step" data-step="2">
+            <div class="flow-num">2</div>
+            <div style="font-size: 0.8rem;">Scoring Engine (Layer 4)</div>
+          </div>
+          <div class="flow-step" data-step="3">
+            <div class="flow-num">3</div>
+            <div style="font-size: 0.8rem;">Classification (Layer 4)</div>
+          </div>
+          <div class="flow-step" data-step="4">
+            <div class="flow-num">4</div>
+            <div style="font-size: 0.8rem;">Routing Logic (Layer 4)</div>
+          </div>
+          <div class="flow-step" data-step="5">
+            <div class="flow-num">5</div>
+            <div style="font-size: 0.8rem;">Notification (Layer 5)</div>
+          </div>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- CENTER: Main Dashboard -->
+    <section style="display: flex; flex-direction: column; gap: 24px;">
+      
+      <!-- Analytics Header -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+        <div class="card" style="text-align:center;">
+          <div class="pipeline-val" id="pipeline-value">₹0</div>
+          <div class="pipeline-label">Total Pipeline Value</div>
+        </div>
+        <div class="card">
+          <h2 class="panel-title" style="margin-bottom:12px;">Priority Distribution</h2>
+          <div id="analytics-distribution">
+            <!-- Dynamic Content -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Leads Table -->
+      <section class="card" id="leads" style="flex: 1;">
+        <h2 class="panel-title">👥 Lead Repository (Layer 6)</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Lead / Company</th>
+                <th>Score</th>
+                <th>Priority</th>
+                <th>Assigned Team</th>
+                <th>Status</th>
+                <th>Created</th>
+              </tr>
+            </thead>
+            <tbody id="leads-table-body">
+              <!-- Dynamic Content -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- RIGHT: Intelligence & Activity -->
+    <aside style="display: flex; flex-direction: column; gap: 24px;">
+      
+      <!-- Activity Log -->
+      <section class="card">
+        <h2 class="panel-title">📜 System Activity Log</h2>
+        <div class="activity-feed" id="activity-feed">
+          <!-- Dynamic Content -->
+        </div>
+      </section>
+
+      <!-- Conversion Funnel -->
+      <section class="card">
+        <h2 class="panel-title">📈 Conversion Funnel</h2>
+        <div id="analytics-funnel">
+           <!-- Dynamic Content -->
+        </div>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <!-- Email Modal -->
+  <div class="modal-overlay" id="email-modal">
+    <div class="modal-content">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 20px;">
+        <h2 style="color:var(--accent);">🔥 Hot Lead Notification</h2>
+        <button onclick="ExperienceLayer.UIManager.closeModal()" style="background:none; border:none; color:var(--muted); font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+      <div style="background:var(--surface); border: 1px dashed var(--border); padding: 20px; border-radius: 8px; font-family:'JetBrains Mono', monospace; font-size:0.85rem;">
+        <div style="margin-bottom:8px;"><strong>From:</strong> crm-intelligence@system.io</div>
+        <div style="margin-bottom:8px;"><strong>To:</strong> <span id="modal-to"></span></div>
+        <div style="margin-bottom:12px;"><strong>Subject:</strong> <span id="modal-subject"></span></div>
+        <hr style="border:none; border-top:1px solid var(--border); margin:12px 0;" />
+        <div id="modal-body" style="line-height:1.6; white-space:pre-wrap;"></div>
+      </div>
+      <button class="btn-primary" style="margin-top:24px;" onclick="ExperienceLayer.UIManager.closeModal()">Acknowledge & Close</button>
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 40px; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border);">
+    Built with 7-Layer Architecture · Modular JS · Real-time Intelligence Engine
+  </footer>
+
+  <!-- Scripts: Layered Architecture -->
+  <script src="js/data.js"></script>
+  <script src="js/domain.js"></script>
+  <script src="js/integration.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/application.js"></script>
+  <script src="js/experience.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
